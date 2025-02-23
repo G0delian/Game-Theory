@@ -262,7 +262,7 @@ class GameTheoryVisualizer:
         })
 
     # ========================================================================
-    # Новый метод для упорядочивания всех точек
+    # метод для упорядочивания всех точек
     # ========================================================================
     def polygon_order_through_all_points(self, points):
         """
@@ -282,7 +282,6 @@ class GameTheoryVisualizer:
         all_pts_array = np.array(self.points)
 
         if self.dim == 2:
-						# your method
             if len(self.points) >= 2:
                 ordered_pts = self.polygon_order_through_all_points(self.points)
                 ordered_pts_closed = ordered_pts + [ordered_pts[0]]

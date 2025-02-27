@@ -1,10 +1,11 @@
 """
 Date of code creation: 2025-21-02
-Author: Uchkunov Boburmirzo
-Modified by: Polat Tadjimurodov
+Author:                Uchkunov Boburmirzo
+Modified by:           Polat Tadjimurodov
+Modified data:         2025-23-02
 
-Last modified: 2025-27-02
-Last modified by: Uchkunov Boburmirzo
+Last modified:         2025-27-02
+Last modified by:      Uchkunov Boburmirzo
 
 Description: Models a pursuit-evasion game between two players (P and E) acting optimally.
              Analyzes optimal strategies for various geometric shapes, from triangles to n-sided polygons.

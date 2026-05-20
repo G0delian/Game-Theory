@@ -23,25 +23,14 @@ import tkinter as tk
 from tkinter import simpledialog
 
 def ball_from_one_point(p):
-    """
-    Возвращает сферу радиуса 0, центр в точке p.
-    """
     return np.array(p, dtype=float), 0.0
 
 def ball_from_two_points(p, q):
-    """
-    Описывающая окружность/сфера для двух точек — центр посередине,
-    радиус = половина расстояния.
-    """
     center = (np.array(p) + np.array(q)) / 2.0
     radius = distance.euclidean(p, q) / 2.0
     return center, radius
 
 def ball_from_three_points_2d(a, b, c):
-    """
-    Окружность через 3 точки в 2D.
-    Если точки коллинеарны (почти), то fallback к ball_from_two_points.
-    """
     A = np.array(a, dtype=float)
     B = np.array(b, dtype=float)
     C = np.array(c, dtype=float)
@@ -63,10 +52,6 @@ def ball_from_three_points_2d(a, b, c):
     return center, radius
 
 def ball_from_three_points_3d(a, b, c):
-    """
-    Сфера, проходящая через 3 точки в 3D.
-    Реализован перевод в локальную плоскость и вычисление окружности в 2D.
-    """
     A = np.array(a, dtype=float)
     B = np.array(b, dtype=float)
     C = np.array(c, dtype=float)
@@ -98,10 +83,6 @@ def ball_from_three_points_3d(a, b, c):
     return center3d, radius2d
 
 def ball_from_four_points_3d(a, b, c, d):
-    """
-    Сфера, проходящая через 4 точки в 3D.
-    Если система вырождена, уходим в fallback.
-    """
     A = np.array(a, dtype=float)
     B = np.array(b, dtype=float)
     C = np.array(c, dtype=float)
@@ -148,9 +129,6 @@ def ball_from_four_points_3d(a, b, c, d):
     return center, radius
 
 def fallback_3d(points):
-    """
-    Если 4 точки вырождены, пробуем все тройки и т.д.
-    """
     arr = np.array(points)
     n = len(arr)
     best_center = None
@@ -274,12 +252,6 @@ def weiszfeld_geometric_median_3d(points, max_iter=1000, eps=1e-7):
     return current
 
 class GameTheoryVisualizer:
-    """
-    Класс для интерактивного добавления точек и визуализации:
-    - Минимальной описывающей сферы (центр O, радиус R)
-    - Геометрической медианы (точка P)
-    - Точек E на границе
-    """
     def __init__(self, dim=2):
         self.dim = dim
         self.points = []
